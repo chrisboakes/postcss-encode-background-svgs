@@ -9,13 +9,15 @@ module.exports = {
      * @return String
      */
     getSVGElement(svgURL) {
-        // url\(\'data:image\/svg\+xml\;utf8?\,\s?(.*?)\'\)
-        const svgRegex = /url\(\'data:image\/svg\+xml(?:,|;utf8,)\s?(<svg.*<\/svg>)\'\)/g;
+        const svgRegex = /url\(\'data:image\/svg\+xml(?:,|;utf8,)\s?(<svg.*<\/svg>)\'\)(.*)/g;
         // Execute our regex on the value passed in to this method
         let match = svgRegex.exec(svgURL);
         // If our Regex matches
-        if (match !== null && match.length > 0 && match[1] !== 0) {
-            return match[1];
+        if (match !== null && match.length > 1 && match[1] !== 0 && match[2] !== 0) {
+            return {
+                svg: match[1],
+                shorthandRules: match[2]
+            };
         } else {
             return null;
         }
