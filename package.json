@@ -1,0 +1,46 @@
+{
+  "name": "postcss-encode-background-svgs",
+  "version": "0.0.1",
+  "description": "PostCSS plugin to urlencode background svgs",
+  "main": "src/index.js",
+  "keywords": [
+    "postcss",
+    "css",
+    "postcss-plugin",
+    "urlencode",
+    "encode",
+    "background-svg",
+    "svg"
+  ],
+  "author": "Chris Boakes <chris@chrisboakes.com>",
+  "license": "MIT",
+  "repository": "chrisboakes/postcss-encode-background-svgs",
+  "bugs": {
+    "url": "https://github.com/chrisboakes/postcss-encode-background-svgs/issues"
+  },
+  "homepage": "https://github.com/chrisboakes/postcss-encode-background-svgs",
+  "dependencies": {
+    "babel-eslint": "^8.0.1",
+    "postcss": "^6.0.1"
+  },
+  "devDependencies": {
+    "eslint-config-postcss": "^2.0.2",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-loader": "^1.9.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-node": "^5.2.0",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "eslint": "^4.8.0",
+    "jest-cli": "^21.2.1"
+  },
+  "scripts": {
+    "test": "jest && eslint *.js"
+  },
+  "eslintConfig": {
+    "extends": "eslint-config-postcss/es5",
+    "env": {
+      "jest": true
+    }
+  }
+}
