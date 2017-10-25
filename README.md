@@ -1,4 +1,10 @@
-# PostCSS Encode Background SVGs
+# PostCSS Encode Background SVGs [![npm version][npm-badge-version]][npm-link] [![gitter][gitter-badge]][gitter-link]
+
+[npm-badge-version]: https://img.shields.io/npm/v/postcss-encode-background-svgs.svg
+[npm-link]: https://www.npmjs.com/package/postcss-encode-background-svgs
+[gitter-badge]: https://badges.gitter.im/Join%20Chat.svg
+[gitter-link]: https://gitter.im/peterramsing/lost
+
 [PostCSS](https://github.com/postcss/postcss) plugin to encode background-image SVGs for cross browser compatibility.
 
 ### The Problem
@@ -7,12 +13,12 @@ Background image SVGs are great but they don't render on IE unless encoded prope
 ### The Solution
 Write your background as you usually would:
 
-```css
+```scss
 background-image: url('data:image/svg+xml, <svg xmlns="http://www.w3.org/2000/svg" /></svg>');
 ```
 This encoder will then take your readable SVG and return a UTF-8 cross browser encoded solution like so:
 
-```css
+```scss
 background-image: url('data:image/svg+xml, %3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20%2F%3E%3C%2Fsvg%3E');
 ```
 
