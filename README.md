@@ -40,7 +40,7 @@ npm install postcss-encode-background-svgs
 
 ## Usage
 ```js
-postcss([require('urlencode-background-svgs')()])
+postcss([require('postcss-encode-background-svgs')()])
 ```
 
 See the [PostCSS](https://github.com/postcss/postcss#usage) docs for examples for your environment.
