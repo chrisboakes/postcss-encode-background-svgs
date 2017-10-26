@@ -7,3 +7,6 @@ cache: yarn
 
 script:
   - yarn run test
+
+after_success:
+  - yarn run report-coverage

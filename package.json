@@ -20,10 +20,12 @@
   },
   "homepage": "https://github.com/chrisboakes/postcss-encode-background-svgs",
   "dependencies": {
-    "babel-eslint": "^8.0.1",
     "postcss": "^6.0.1"
   },
   "devDependencies": {
+    "babel-eslint": "^8.0.1",
+    "codecov": "^3.0.0",
+    "eslint": "^4.8.0",
     "eslint-config-postcss": "^2.0.2",
     "eslint-config-standard": "^10.2.1",
     "eslint-loader": "^1.9.0",
@@ -31,16 +33,20 @@
     "eslint-plugin-node": "^5.2.0",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
-    "eslint": "^4.8.0",
     "jest-cli": "^21.2.1"
   },
   "scripts": {
-    "test": "jest && eslint *.js"
+    "test": "jest --coverage && eslint *.js",
+    "report-coverage": "codecov"
   },
   "eslintConfig": {
     "extends": "eslint-config-postcss/es5",
     "env": {
       "jest": true
     }
+  },
+  "jest": {
+    "coverageDirectory": "./coverage/",
+    "collectCoverage": true
   }
 }
