@@ -17,11 +17,13 @@ Background image SVGs are great but they don't render on IE unless encoded prope
 Write your background as you usually would:
 
 ```scss
+/* Input example */
 background-image: url('data:image/svg+xml, <svg xmlns="http://www.w3.org/2000/svg" /></svg>');
 ```
 This encoder will then take your readable SVG and return a UTF-8 cross browser encoded solution like so:
 
 ```scss
+/* Output example */
 background-image: url('data:image/svg+xml, %3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20%2F%3E%3C%2Fsvg%3E');
 ```
 
