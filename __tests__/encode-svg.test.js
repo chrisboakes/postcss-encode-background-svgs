@@ -33,7 +33,7 @@ test('svg to not be encoded because of no closing svg tag', () => {
 });
 
 test('svg to not be encoded because of incorrect type declaration', () => {
-    let svgValue = 'url(\'image/svg+xml, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11.5 23.7"><path d="M2.5 4.8v3.4H0v4.2h2.5v11.4h5.1V12.3H11s.3-2 .5-4.2H7.6V5.3c0-.4.6-1 1.1-1h2.8V0H7.7C2.4 0 2.5 4.2 2.5 4.8"/>\')';
+    let svgValue = 'url(\'image/svg+xml, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11.5 23.7"><path d="M2.5 4.8v3.4H0v4.2h2.5v11.4h5.1V12.3H11s.3-2 .5-4.2H7.6V5.3c0-.4.6-1 1.1-1h2.8V0H7.7C2.4 0 2.5 4.2 2.5 4.8"/></svg>\')';
     expect(() => {
         encode.encodeSVG(svgValue);
     }).toThrow();

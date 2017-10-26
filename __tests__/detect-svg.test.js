@@ -62,6 +62,6 @@ test('svg be null without closing svg tag', () => {
 });
 
 test('svg be null if no data definition', () => {
-    let svgValue = 'url(\'<svg xmlns="http://www.w3.org/2000/svg" />\')';
+    let svgValue = 'url(\'<svg xmlns="http://www.w3.org/2000/svg" /></svg>\')';
     expect(detectSVG.getSVGElement(svgValue)).toBeNull();
 });
