@@ -1,5 +1,5 @@
 # PostCSS Encode Background SVGs
-[![Build Status][travis-badge]][travis-link] [![npm version][npm-badge-version]][npm-link] [![gitter][gitter-badge]][gitter-link]
+[![Build Status][travis-badge]][travis-link] [![Code Coverage][codecov-badge]][codecov-link] [![npm version][npm-badge-version]][npm-link] [![gitter][gitter-badge]][gitter-link]
 
 [npm-badge-version]: https://img.shields.io/npm/v/postcss-encode-background-svgs.svg
 [npm-link]: https://www.npmjs.com/package/postcss-encode-background-svgs
@@ -7,6 +7,8 @@
 [gitter-link]: https://gitter.im/peterramsing/lost
 [travis-badge]: https://travis-ci.org/chrisboakes/postcss-encode-background-svgs.svg?branch=master
 [travis-link]: https://travis-ci.org/chrisboakes/postcss-encode-background-svgs
+[codecov-badge]: https://codecov.io/gh/chrisboakes/postcss-encode-background-svgs/branch/master/graph/badge.svg
+[codecov-link]: https://codecov.io/gh/chrisboakes/postcss-encode-background-svgs
 
 [PostCSS](https://github.com/postcss/postcss) plugin to encode background-image SVGs for cross browser compatibility.
 
