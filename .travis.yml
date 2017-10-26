@@ -1,6 +1,9 @@
 language: node_js
-cache: yarn
+
 node_js:
-  - stable
-  - "6"
-  - "4"
+  - "stable"
+
+cache: yarn
+
+script:
+  - yarn run test
