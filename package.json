@@ -1,6 +1,6 @@
 {
   "name": "postcss-encode-background-svgs",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "PostCSS plugin to urlencode background svgs",
   "main": "src/index.js",
   "keywords": [
