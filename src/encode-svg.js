@@ -10,8 +10,12 @@ module.exports = {
         let newValue = svgURL;
         let matchSVG = detectSVG.getSVGElement(svgURL);
         if (matchSVG) {
-            // Encode the <svg /></svg> segment of the URL
-            let encodedURL = encodeURIComponent(matchSVG.svg);
+            let encodedURL = matchSVG.svg;
+            // Ensure that the <svg /></svg> segment of the URL is not already encoded
+            // If not, encode it
+            if (!matchSVG.svgAlreadyEncoded) {
+                encodedURL = encodeURIComponent(matchSVG.svg);
+            }
             let shorthandRules = matchSVG.shorthandRules;
             // Place the encoded URL back into the value structure
             newValue = `url('data:image/svg+xml, ${encodedURL}')${shorthandRules}`;

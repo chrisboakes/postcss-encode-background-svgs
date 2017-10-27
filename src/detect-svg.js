@@ -9,14 +9,25 @@ module.exports = {
      * @return String
      */
     getSVGElement(svgURL) {
+        // Regex for an un-encoded SVG
         const svgRegex = /url\(\'data:image\/svg\+xml(?:,|;utf8,)\s?(<svg.*<\/svg>)\'\)(.*)/g;
+        // Regex for an encoded SVG
+        const svgRegexEncoded = /url\(\'data:image\/svg\+xml(?:,|;utf8,)\s?(%3Csvg.*%3C%2Fsvg%3E)\'\)(.*)/g;
         // Execute our regex on the value passed in to this method
         let match = svgRegex.exec(svgURL);
+        let matchEncoded = svgRegexEncoded.exec(svgURL);
         // If our Regex matches
         if (match !== null && match.length > 1 && match[1] !== 0 && match[2] !== 0) {
             return {
                 svg: match[1],
-                shorthandRules: match[2]
+                shorthandRules: match[2],
+                svgAlreadyEncoded: false
+            };
+        } else if (matchEncoded !== null && matchEncoded.length > 1 && matchEncoded[1] !== 0 && matchEncoded[2] !== 0) {
+            return {
+                svg: matchEncoded[1],
+                shorthandRules: matchEncoded[2],
+                svgAlreadyEncoded: true
             };
         } else {
             return null;
