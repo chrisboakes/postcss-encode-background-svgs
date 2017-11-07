@@ -31,6 +31,36 @@ test('svg to be detected with explicit utf8', () => {
     expect(detectSVG.getSVGElement(svgValue)).toEqual(svgSegement);
 });
 
+test('svg to be detected with explicit charset', () => {
+    let svgValue = 'url(\'data:image/svg+xml;charset=utf-8, <svg xmlns="http://www.w3.org/2000/svg" /></svg>\')';
+    let svgSegement = {
+        svg: '<svg xmlns="http://www.w3.org/2000/svg" /></svg>',
+        shorthandRules: '',
+        svgAlreadyEncoded: false
+    };
+    expect(detectSVG.getSVGElement(svgValue)).toEqual(svgSegement);
+});
+
+test('svg to be detected with explicit charset and encoding', () => {
+    let svgValue = 'url(\'data:image/svg+xml;charset=utf-8, %3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2011.5%2023.7%22%3E%3Cpath%20d%3D%22M2.5%204.8v3.4H0v4.2h2.5v11.4h5.1V12.3H11s.3-2%20.5-4.2H7.6V5.3c0-.4.6-1%201.1-1h2.8V0H7.7C2.4%200%202.5%204.2%202.5%204.8%22%2F%3E%3C%2Fsvg%3E\')';
+    let svgSegement = {
+        svg: '%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2011.5%2023.7%22%3E%3Cpath%20d%3D%22M2.5%204.8v3.4H0v4.2h2.5v11.4h5.1V12.3H11s.3-2%20.5-4.2H7.6V5.3c0-.4.6-1%201.1-1h2.8V0H7.7C2.4%200%202.5%204.2%202.5%204.8%22%2F%3E%3C%2Fsvg%3E',
+        shorthandRules: '',
+        svgAlreadyEncoded: true
+    };
+    expect(detectSVG.getSVGElement(svgValue)).toEqual(svgSegement);
+});
+
+test('svg to be detected with explicit charset and encoding without space', () => {
+    let svgValue = 'url(\'data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2011.5%2023.7%22%3E%3Cpath%20d%3D%22M2.5%204.8v3.4H0v4.2h2.5v11.4h5.1V12.3H11s.3-2%20.5-4.2H7.6V5.3c0-.4.6-1%201.1-1h2.8V0H7.7C2.4%200%202.5%204.2%202.5%204.8%22%2F%3E%3C%2Fsvg%3E\')';
+    let svgSegement = {
+        svg: '%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2011.5%2023.7%22%3E%3Cpath%20d%3D%22M2.5%204.8v3.4H0v4.2h2.5v11.4h5.1V12.3H11s.3-2%20.5-4.2H7.6V5.3c0-.4.6-1%201.1-1h2.8V0H7.7C2.4%200%202.5%204.2%202.5%204.8%22%2F%3E%3C%2Fsvg%3E',
+        shorthandRules: '',
+        svgAlreadyEncoded: true
+    };
+    expect(detectSVG.getSVGElement(svgValue)).toEqual(svgSegement);
+});
+
 test('svg to be null if invalid text preceding opening svg tag', () => {
     let svgValue = 'url(\'data:image/svg+xml,apples <svg xmlns="http://www.w3.org/2000/svg" /></svg>\')';
     expect(detectSVG.getSVGElement(svgValue)).toBeNull();
