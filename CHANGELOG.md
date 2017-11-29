@@ -1,6 +1,10 @@
 # Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+0.0.7 - 2017-11-29
+
+* [Better way](https://codepen.io/tigt/post/optimizing-svgs-in-data-uris) to encode SVG thanks to [retyui](https://github.com/retyui) for the spot
+
 0.0.4 - 2017-10-27
 
 * Fixes bug where if SVG is already encoded, plugin doesn't throw error
