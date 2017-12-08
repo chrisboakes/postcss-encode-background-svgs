@@ -18,7 +18,7 @@ module.exports = {
             }
             let shorthandRules = matchSVG.shorthandRules;
             // Place the encoded URL back into the value structure
-            newValue = `url('data:image/svg+xml,${encodedURL}')${shorthandRules}`;
+            newValue = `url("data:image/svg+xml,${encodedURL}")${shorthandRules}`;
         // If our Regex doesn't match, throw an error
         } else {
             throw new Error('Background SVG syntax error - please correct your syntax and try again.');
