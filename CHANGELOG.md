@@ -1,6 +1,11 @@
 # Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+1.0.0 - 2018-01-03
+
+* Wrote test to check for inline styles
+* Correctly throw errors if SVG is invalid
+
 0.0.9 - 2017-12-08
 
 * Fixed quote marks bug
