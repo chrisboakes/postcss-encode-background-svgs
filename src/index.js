@@ -14,7 +14,7 @@ module.exports = postcss.plugin('postcss-urlencode-background-svgs', () => {
             // Loop through the declarations
             rule.walkDecls((decl) => {
                 if (isSVG.isBackgroundSVG(decl.value)) {
-                    decl.value = encode.encodeSVG(decl.value);
+                    decl.value = encode.encodeSVG(decl);
                 }
             });
         });

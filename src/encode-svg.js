@@ -4,9 +4,10 @@ let detectSVG = require('./detect-svg');
  * @param String svgURL - string of background-image value
  */
 module.exports = {
-    encodeSVG(svgURL) {
+    encodeSVG(decl) {
         // Default value is what we've passed in
         // If the regex is successful, this will be overidden
+        let svgURL = decl.value;
         let newValue = svgURL;
         let matchSVG = detectSVG.getSVGElement(svgURL);
         if (matchSVG) {
@@ -21,7 +22,7 @@ module.exports = {
             newValue = `url("data:image/svg+xml,${encodedURL}")${shorthandRules}`;
         // If our Regex doesn't match, throw an error
         } else {
-            throw new Error('Background SVG syntax error - please correct your syntax and try again.');
+            throw decl.error('Background SVG syntax error - please correct your syntax and try again.', {plugin: 'postcss-encode-background-svgs'});
         }
         return newValue;
     },
