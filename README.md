@@ -18,13 +18,13 @@ Write your background as you usually would:
 
 ```scss
 /* Input example */
-background-image: url('data:image/svg+xml, <svg xmlns="http://www.w3.org/2000/svg" /></svg>');
+background-image: url('data:image/svg+xml, <svg xmlns="http://www.w3.org/2000/svg"></svg>');
 ```
 This encoder will then take your readable SVG and return a UTF-8 cross browser encoded solution like so:
 
 ```scss
 /* Output example */
-background-image: url("data:image/svg+xml,data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' /%3E%3C/svg%3E");
+background-image: url("data:image/svg+xml,data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3C/svg%3E");
 ```
 
 ## Installation

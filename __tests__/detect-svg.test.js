@@ -2,9 +2,9 @@
 let detectSVG = require('../src/detect-svg');
 
 test('svg to be detected', () => {
-    let svgValue = 'url(\'data:image/svg+xml, <svg xmlns="http://www.w3.org/2000/svg" /></svg>\')';
+    let svgValue = 'url(\'data:image/svg+xml, <svg xmlns="http://www.w3.org/2000/svg"></svg>\')';
     let svgSegement = {
-        svg: '<svg xmlns="http://www.w3.org/2000/svg" /></svg>',
+        svg: '<svg xmlns="http://www.w3.org/2000/svg"></svg>',
         shorthandRules: '',
         svgAlreadyEncoded: false
     };
@@ -12,9 +12,9 @@ test('svg to be detected', () => {
 });
 
 test('svg to be detected with shorthand rules', () => {
-    let svgValue = 'url(\'data:image/svg+xml, <svg xmlns="http://www.w3.org/2000/svg" /></svg>\') no-repeat top center';
+    let svgValue = 'url(\'data:image/svg+xml, <svg xmlns="http://www.w3.org/2000/svg"></svg>\') no-repeat top center';
     let svgSegement = {
-        svg: '<svg xmlns="http://www.w3.org/2000/svg" /></svg>',
+        svg: '<svg xmlns="http://www.w3.org/2000/svg"></svg>',
         shorthandRules: ' no-repeat top center',
         svgAlreadyEncoded: false
     };
@@ -22,9 +22,9 @@ test('svg to be detected with shorthand rules', () => {
 });
 
 test('svg to be detected with explicit utf8', () => {
-    let svgValue = 'url(\'data:image/svg+xml;utf8, <svg xmlns="http://www.w3.org/2000/svg" /></svg>\')';
+    let svgValue = 'url(\'data:image/svg+xml;utf8, <svg xmlns="http://www.w3.org/2000/svg"></svg>\')';
     let svgSegement = {
-        svg: '<svg xmlns="http://www.w3.org/2000/svg" /></svg>',
+        svg: '<svg xmlns="http://www.w3.org/2000/svg"></svg>',
         shorthandRules: '',
         svgAlreadyEncoded: false
     };
@@ -97,16 +97,16 @@ test('svg to return encoded version if already encoded', () => {
 });
 
 test('svg be null with incorrect data', () => {
-    let svgValue = 'url(\'data:image/svg+jpg, <svg xmlns="http://www.w3.org/2000/svg" /></svg>\')';
+    let svgValue = 'url(\'data:image/svg+jpg, <svg xmlns="http://www.w3.org/2000/svg"></svg>\')';
     expect(detectSVG.getSVGElement(svgValue)).toBeNull();
 });
 
 test('svg be null without closing svg tag', () => {
-    let svgValue = 'url(\'data:image/svg+jpg, <svg xmlns="http://www.w3.org/2000/svg" />\')';
+    let svgValue = 'url(\'data:image/svg+jpg, <svg xmlns="http://www.w3.org/2000/svg">\')';
     expect(detectSVG.getSVGElement(svgValue)).toBeNull();
 });
 
 test('svg be null if no data definition', () => {
-    let svgValue = 'url(\'<svg xmlns="http://www.w3.org/2000/svg" /></svg>\')';
+    let svgValue = 'url(\'<svg xmlns="http://www.w3.org/2000/svg"></svg>\')';
     expect(detectSVG.getSVGElement(svgValue)).toBeNull();
 });
