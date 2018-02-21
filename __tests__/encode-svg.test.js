@@ -3,10 +3,10 @@ let encode = require('../src/encode-svg');
 
 test('svg to be encoded', () => {
     let svgValue = {
-        value: 'url(\'data:image/svg+xml, <svg xmlns="http://www.w3.org/2000/svg" /></svg>\')',
+        value: 'url(\'data:image/svg+xml, <svg xmlns="http://www.w3.org/2000/svg"></svg>\')',
         error: () => { throw new Error(); }
     };
-    let svgEncoded = 'url(\"data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' /%3E%3C/svg%3E\")';
+    let svgEncoded = 'url(\"data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\'%3E%3C/svg%3E\")';
     expect(encode.encodeSVG(svgValue)).toBe(svgEncoded);
 });
 
