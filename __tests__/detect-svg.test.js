@@ -96,6 +96,16 @@ test('svg to return encoded version if already encoded', () => {
     expect(detectSVG.getSVGElement(svgValue)).toEqual(svgSegement);
 });
 
+test('svg to return optimised encoded version if already encoded', () => {
+    let svgValue = 'url(\'data:image/svg+xml, %3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100.8 77.3"%3E%3Cpath d="M37 50.4L13.4 26.9 0 40.3l37 37 63.9-63.9L87.4 0 37 50.4z"/%3E%3C/svg%3E\')';
+    let svgSegement = {
+        svg: '%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100.8 77.3"%3E%3Cpath d="M37 50.4L13.4 26.9 0 40.3l37 37 63.9-63.9L87.4 0 37 50.4z"/%3E%3C/svg%3E',
+        shorthandRules: '',
+        svgAlreadyEncoded: true
+    };
+    expect(detectSVG.getSVGElement(svgValue)).toEqual(svgSegement);
+});
+
 test('svg be null with incorrect data', () => {
     let svgValue = 'url(\'data:image/svg+jpg, <svg xmlns="http://www.w3.org/2000/svg"></svg>\')';
     expect(detectSVG.getSVGElement(svgValue)).toBeNull();
