@@ -76,6 +76,16 @@ test('svg to be detected with space after comma', () => {
     expect(detectSVG.getSVGElement(svgValue)).toEqual(svgSegement);
 });
 
+test('svg to be detected with double quote marks', () => {
+    let svgValue = 'url(\"data:image/svg+xml,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 11.5 23.7\'><path d=\'M2.5 4.8v3.4H0v4.2h2.5v11.4h5.1V12.3H11s.3-2 .5-4.2H7.6V5.3c0-.4.6-1 1.1-1h2.8V0H7.7C2.4 0 2.5 4.2 2.5 4.8\'/></svg>\")';
+    let svgSegement = {
+        svg: '<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 11.5 23.7\'><path d=\'M2.5 4.8v3.4H0v4.2h2.5v11.4h5.1V12.3H11s.3-2 .5-4.2H7.6V5.3c0-.4.6-1 1.1-1h2.8V0H7.7C2.4 0 2.5 4.2 2.5 4.8\'/></svg>',
+        shorthandRules: '',
+        svgAlreadyEncoded: false
+    };
+    expect(detectSVG.getSVGElement(svgValue)).toEqual(svgSegement);
+});
+
 test('svg to be detected with no space after comma', () => {
     let svgValue = 'url(\'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11.5 23.7"><path d="M2.5 4.8v3.4H0v4.2h2.5v11.4h5.1V12.3H11s.3-2 .5-4.2H7.6V5.3c0-.4.6-1 1.1-1h2.8V0H7.7C2.4 0 2.5 4.2 2.5 4.8"/></svg>\')';
     let svgSegement = {
@@ -100,6 +110,16 @@ test('svg to return optimised encoded version if already encoded', () => {
     let svgValue = 'url(\'data:image/svg+xml, %3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100.8 77.3"%3E%3Cpath d="M37 50.4L13.4 26.9 0 40.3l37 37 63.9-63.9L87.4 0 37 50.4z"/%3E%3C/svg%3E\')';
     let svgSegement = {
         svg: '%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100.8 77.3"%3E%3Cpath d="M37 50.4L13.4 26.9 0 40.3l37 37 63.9-63.9L87.4 0 37 50.4z"/%3E%3C/svg%3E',
+        shorthandRules: '',
+        svgAlreadyEncoded: true
+    };
+    expect(detectSVG.getSVGElement(svgValue)).toEqual(svgSegement);
+});
+
+test('svg to return optimised encoded version if already encoded with double quotes', () => {
+    let svgValue = 'url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100.8 77.3\'%3E%3Cpath d=\'M37 50.4L13.4 26.9 0 40.3l37 37 63.9-63.9L87.4 0 37 50.4z\'/%3E%3C/svg%3E")';
+    let svgSegement = {
+        svg: '%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100.8 77.3\'%3E%3Cpath d=\'M37 50.4L13.4 26.9 0 40.3l37 37 63.9-63.9L87.4 0 37 50.4z\'/%3E%3C/svg%3E',
         shorthandRules: '',
         svgAlreadyEncoded: true
     };
