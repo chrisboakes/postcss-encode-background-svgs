@@ -8,7 +8,7 @@ module.exports = {
      */
     isBackgroundSVG(decVal) {
         let isBackgroundSVG = false;
-        if (decVal.indexOf('data:image/svg+xml') !== -1) {
+        if (decVal.indexOf('data:image/svg+xml') !== -1 && decVal.indexOf('data:image/svg+xml;base64,') === -1) {
             isBackgroundSVG = true;
         }
         return isBackgroundSVG;
