@@ -1,6 +1,6 @@
 {
   "name": "postcss-encode-background-svgs",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "PostCSS plugin to urlencode background svgs",
   "main": "src/index.js",
   "keywords": [
@@ -29,7 +29,7 @@
     "eslint-config-postcss": "^2.0.2",
     "eslint-config-standard": "^10.2.1",
     "eslint-loader": "^1.9.0",
-    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-node": "^5.2.0",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
