@@ -1,6 +1,18 @@
 # Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+2.0.0 - 2026-07-02
+
+* **Breaking:** PostCSS 8 is now a peer dependency (was a bundled PostCSS 6 dependency)
+* **Breaking:** Node.js >= 20 is required
+* **Breaking:** plugin registers as `postcss-encode-background-svgs` (previously `postcss-urlencode-background-svgs`)
+* Migrated to the PostCSS 8 plugin API
+* Rewrote source in TypeScript; package now ships ESM + CommonJS builds with type declarations
+* Replaced Jest with Vitest and added plugin-level integration tests (encoding behaviour is unchanged)
+* Replaced Travis CI with GitHub Actions (test matrix on Node 20/22/24)
+* Releases are published from CI via npm trusted publishing with provenance
+* Switched to pnpm, added Dependabot, ESLint 10 flat config, and a `files` whitelist instead of `.npmignore`
+
 1.0.3 - 2018-03-16
 
 * Updated REGEX to take into account both double and single quote marks
