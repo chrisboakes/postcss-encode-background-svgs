@@ -59,7 +59,7 @@
     "eslint": "^10.6.0",
     "postcss": "^8.5.16",
     "tsup": "^8.5.1",
-    "typescript": "^5.9.3",
+    "typescript": "^6.0.3",
     "typescript-eslint": "^8.62.1",
     "vitest": "^4.1.9"
   },
